@@ -38,26 +38,33 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.StabilityTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(172, 269);
+            this.button1.Location = new System.Drawing.Point(161, 269);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 55);
+            this.button1.Size = new System.Drawing.Size(145, 45);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Add element";
+            this.button1.Text = "Add vector";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(695, 290);
+            this.button2.Location = new System.Drawing.Point(574, 237);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 55);
+            this.button2.Size = new System.Drawing.Size(162, 57);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Generate output";
+            this.button2.Text = "Generate weight matrix";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -76,7 +83,7 @@
             this.textBox1.Location = new System.Drawing.Point(40, 23);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(430, 188);
+            this.textBox1.Size = new System.Drawing.Size(411, 188);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
@@ -85,7 +92,7 @@
             this.textBox2.Location = new System.Drawing.Point(574, 23);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(383, 261);
+            this.textBox2.Size = new System.Drawing.Size(383, 188);
             this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -127,19 +134,98 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button6.Location = new System.Drawing.Point(213, 226);
+            this.button6.Location = new System.Drawing.Point(208, 224);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(57, 35);
+            this.button6.Size = new System.Drawing.Size(62, 39);
             this.button6.TabIndex = 8;
             this.button6.Text = "0";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(684, 370);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(164, 17);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Test Stability of a vector:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(574, 405);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(383, 99);
+            this.textBox3.TabIndex = 10;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button7.Location = new System.Drawing.Point(680, 510);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(56, 35);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "-1";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button8.Location = new System.Drawing.Point(742, 510);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(59, 35);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "0";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button9.Location = new System.Drawing.Point(807, 510);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(61, 35);
+            this.button9.TabIndex = 13;
+            this.button9.Text = "1";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.LightCoral;
+            this.button10.Location = new System.Drawing.Point(710, 551);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(138, 35);
+            this.button10.TabIndex = 14;
+            this.button10.Text = "Test stability";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // StabilityTest
+            // 
+            this.StabilityTest.Location = new System.Drawing.Point(795, 237);
+            this.StabilityTest.Name = "StabilityTest";
+            this.StabilityTest.Size = new System.Drawing.Size(161, 57);
+            this.StabilityTest.TabIndex = 15;
+            this.StabilityTest.Text = "Test stability of all the input vectors";
+            this.StabilityTest.UseVisualStyleBackColor = true;
+            this.StabilityTest.Click += new System.EventHandler(this.StabilityTest_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 621);
+            this.Controls.Add(this.StabilityTest);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -168,6 +254,13 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button StabilityTest;
     }
 }
 

@@ -14,9 +14,13 @@ namespace Hopfield_associative_memory
         [STAThread]
         static void Main()
         {
+            
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 f = new Form1();
+            f.Text = "Hopfield associative memory simulation";
+            Application.Run(f);
         }
     }
 }
