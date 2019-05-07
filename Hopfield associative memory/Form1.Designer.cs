@@ -60,17 +60,17 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(574, 237);
+            this.button2.Location = new System.Drawing.Point(574, 284);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 57);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Generate weight matrix";
+            this.button2.Text = "Train patterns";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(129, 441);
+            this.button3.Location = new System.Drawing.Point(129, 405);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(221, 63);
             this.button3.TabIndex = 2;
@@ -92,14 +92,14 @@
             this.textBox2.Location = new System.Drawing.Point(574, 23);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(383, 188);
+            this.textBox2.Size = new System.Drawing.Size(383, 255);
             this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 405);
+            this.label1.Location = new System.Drawing.Point(230, 370);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 17);
             this.label1.TabIndex = 5;
@@ -145,7 +145,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(684, 370);
+            this.label2.Location = new System.Drawing.Point(684, 397);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 17);
             this.label2.TabIndex = 9;
@@ -153,7 +153,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(574, 405);
+            this.textBox3.Location = new System.Drawing.Point(574, 417);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(383, 99);
@@ -163,7 +163,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.Location = new System.Drawing.Point(680, 510);
+            this.button7.Location = new System.Drawing.Point(680, 522);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(56, 35);
             this.button7.TabIndex = 11;
@@ -174,7 +174,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button8.Location = new System.Drawing.Point(742, 510);
+            this.button8.Location = new System.Drawing.Point(742, 522);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(59, 35);
             this.button8.TabIndex = 12;
@@ -185,7 +185,7 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button9.Location = new System.Drawing.Point(807, 510);
+            this.button9.Location = new System.Drawing.Point(807, 522);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(61, 35);
             this.button9.TabIndex = 13;
@@ -196,21 +196,21 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.LightCoral;
-            this.button10.Location = new System.Drawing.Point(710, 551);
+            this.button10.Location = new System.Drawing.Point(710, 563);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(138, 35);
             this.button10.TabIndex = 14;
-            this.button10.Text = "Test stability";
+            this.button10.Text = "Test convergence";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // StabilityTest
             // 
-            this.StabilityTest.Location = new System.Drawing.Point(795, 237);
+            this.StabilityTest.Location = new System.Drawing.Point(796, 284);
             this.StabilityTest.Name = "StabilityTest";
             this.StabilityTest.Size = new System.Drawing.Size(161, 57);
             this.StabilityTest.TabIndex = 15;
-            this.StabilityTest.Text = "Test stability of all the input vectors";
+            this.StabilityTest.Text = "Test stability of all the input patterns";
             this.StabilityTest.UseVisualStyleBackColor = true;
             this.StabilityTest.Click += new System.EventHandler(this.StabilityTest_Click);
             // 
@@ -218,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 621);
+            this.ClientSize = new System.Drawing.Size(1019, 625);
             this.Controls.Add(this.StabilityTest);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);

@@ -20,6 +20,7 @@ namespace Hopfield_associative_memory
             Application.SetCompatibleTextRenderingDefault(false);
             Form1 f = new Form1();
             f.Text = "Hopfield associative memory simulation";
+            
             Application.Run(f);
         }
     }

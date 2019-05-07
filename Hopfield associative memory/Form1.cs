@@ -21,6 +21,8 @@ namespace Hopfield_associative_memory
         List<int> temp;
         List<int> testVec;
         int [,]weight;
+        static int itr = 0;
+        int[] temp_arr;
 
         public Form1()
         {
@@ -29,10 +31,15 @@ namespace Hopfield_associative_memory
             temp = new List<int>();
             testVec = new List<int>();
             InitializeComponent();
+
+            textBox1.Font = new Font(textBox1.Font.FontFamily, textBox1.Font.Size * 1.2f);
+            textBox2.Font = new Font(textBox2.Font.FontFamily, textBox2.Font.Size * 1.2f);
+            textBox3.Font = new Font(textBox3.Font.FontFamily, textBox3.Font.Size * 1.2f);
             textBox1.Text = "Enter the Vectors here..";
             textBox1.AppendText(Environment.NewLine);
             textBox3.Text = "Enter the Test vector here: ";
             textBox3.AppendText(Environment.NewLine);
+            
 
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -128,6 +135,7 @@ namespace Hopfield_associative_memory
 
         private void button2_Click(object sender, EventArgs e)
         {
+            temp_arr = new int[vec[0].Count];
             //string separator = " , ";
             this.hopfield();
             StringBuilder sb = new StringBuilder("Weight matrix: "+Environment.NewLine);
@@ -195,28 +203,41 @@ namespace Hopfield_associative_memory
             }
 
             sign(ref b);
-            if (matchVec(ref b, ref arr_ls)) { textBox3.AppendText(Environment.NewLine + "Vector  is stable."+Environment.NewLine); }
-            else { textBox3.AppendText(Environment.NewLine + "Vector is Unstable."+Environment.NewLine);
+
+            if (matchVec(ref b, ref arr_ls)) {
+                textBox3.AppendText(Environment.NewLine + "Vector converges to itself."+Environment.NewLine);
+            }
+
+            else {
+                
                 StringBuilder sb = new StringBuilder(Environment.NewLine+"Converging Pattern is :"+Environment.NewLine);
                 for (int z = 0; z < weight.GetLength(1); z++)
                 {
-
                     sb.Append(b[z].ToString() + " ");
                 }
                 textBox3.AppendText(sb.ToString());
             }
             testVec = new List<int>();
+            textBox3.AppendText(Environment.NewLine);
         }
 
         public void sign(ref int[] a) {
 
             for (int i=0;i<a.Length;i++) {
-                if (a.ElementAt(i)<0) { a[i] = -1; } else { a[i] = 1; }
+
+                if (a.ElementAt(i)<0) {
+                    a[i] = -1;
+                }
+                else {
+                    a[i] = 1;
+                }
             }
            
         }
+
         public bool matchVec(ref int[] b,ref int[] ls_temp ) {
             for (int x = 0; x < b.Length; x++) {
+
                 if (b[x]!=ls_temp[x]) { return false; }
             }
             return true;
@@ -227,44 +248,81 @@ namespace Hopfield_associative_memory
         {
             int c = 1;
             textBox2.AppendText(Environment.NewLine+"Testing Statbility of all input vectors..."+Environment.NewLine);
-            List<int> a; 
-            int[] arr_ls,b;
+            
+            int[] arr_ls;
 
             foreach (var ls in vec) {
 
-                b = new int[ls.Count];
+                
                 arr_ls = new int[ls.Count];
                 ls.CopyTo(arr_ls);
 
-                for (int j=0;j<ls.Count;j++) {
-
-                    a = new List<int>();
-
-                    for (int k = 0; k < weight.GetLength(1); k++) {
-
-                        if (j == k) { a.Add(0); }
-                        else { a.Add(ls.ElementAt(k) * weight[j, k]);
-
-                        }
-                        b.SetValue(a.Sum(),j);
-                    }
-                    
-                }
-                
-                sign(ref b);
-                if (matchVec(ref b,ref arr_ls)) { textBox2.AppendText(Environment.NewLine + "Vector " + c.ToString() + " is stable."); }
-                else { textBox2.AppendText(Environment.NewLine + "Vector " + c.ToString() + " is Unstable.");
-                    StringBuilder sb = new StringBuilder(Environment.NewLine + "Converging Pattern is :" + Environment.NewLine);
-                    for (int z = 0; z < weight.GetLength(1); z++)
-                    {
-
-                        sb.Append(b[z].ToString() + " ");
-                    }
-                    textBox2.AppendText(sb.ToString());
-                }
-
+                iterate(arr_ls, c);
+               
                 c++;
             }
+        }
+
+        public void iterate(int[] arr_ls, int c) {
+            
+            List<int> a;
+            int[] b = new int[arr_ls.Length];
+           
+
+            for (int j = 0; j < arr_ls.Length; j++)
+            {
+
+                a = new List<int>();
+
+                for (int k = 0; k < weight.GetLength(1); k++)
+                {
+
+                    if (j == k) { a.Add(0); }
+                    else
+                    {
+                        a.Add(arr_ls.ElementAt(k) * weight[j, k]);
+
+                    }
+                    b.SetValue(a.Sum(), j);
+                }
+
+            }
+
+            sign(ref b);
+            if (matchVec(ref b, ref arr_ls)) { textBox2.AppendText(Environment.NewLine + "Iteration "+itr+" : Vector " + c.ToString() + " is stable.");
+                itr = 0;
+                Array.Clear(temp_arr,0,b.Length);
+            }
+
+            else
+            {
+                if (itr > 2 && matchVec(ref temp_arr, ref b)) {
+                    textBox2.AppendText(Environment.NewLine+"Infinite iterative loop detected for Vector "+ c +" . Ending iteration!");
+                    itr = 0;
+                }
+
+                else {
+                    //temp_arr =new int[b.Length];
+                    b.CopyTo(temp_arr,0);
+                    textBox2.AppendText(Environment.NewLine + "Iteration " + itr + " : Vector " + c.ToString() + " is Unstable.");
+                    ++itr;
+
+                    StringBuilder sb = new StringBuilder(Environment.NewLine + "v"+c+" is :");
+                    for (int z = 0; z < weight.GetLength(1); z++)
+                    {
+                        sb.Append(b[z].ToString() + " ");
+                    }
+                    textBox2.AppendText(sb.ToString()+Environment.NewLine);
+                    iterate(b, c);
+
+                }
+                
+
+
+
+            }
+
+
         }
     }
 }
